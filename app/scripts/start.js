@@ -47,6 +47,13 @@ defaults.__set__('configFactory', (webpackEnv) => {
   let config = webpackConfig(webpackEnv);
 
   //Customize the webpack configuration here, for reference I have updated webpack externals field
+  // config.devServer.port = 'auto';
+  // console.dir(config, { depth: null })
+
+  // keep classes and components names legible
+  config.optimization.minimizer[0].options.keep_classnames = true;
+  config.optimization.minimizer[0].options.keep_fnames = true;
+
   config.plugins = [
     ...config.plugins,
     new ModuleFederationPlugin({
