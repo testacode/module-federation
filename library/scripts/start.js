@@ -1,6 +1,8 @@
 const rewire = require('rewire');
 const defaults = rewire('react-scripts/scripts/start.js');
 const webpackConfig = require('react-scripts/config/webpack.config');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+require.resolve('react-refresh/babel')
 
 const { resolve } = require("path");
 const { ModuleFederationPlugin } = require("webpack").container;
@@ -57,6 +59,7 @@ defaults.__set__('configFactory', (webpackEnv) => {
       shared: sharedWithVersions,
       remotes,
     }),
+    new ReactRefreshPlugin()
   ];
 
   return config;
