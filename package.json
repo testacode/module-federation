@@ -1,0 +1,21 @@
+{
+  "name": "module-federation-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"wsrun --parallel start\""
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "workspaces": [
+    "app/",
+    "library/"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "wsrun": "^5.2.0"
+  }
+}
